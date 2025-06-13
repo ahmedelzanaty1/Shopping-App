@@ -22,11 +22,12 @@ import androidx.compose.ui.unit.sp
 import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
 import com.bumptech.glide.integration.compose.GlideImage
 import com.example.shoppingapp.R
-import com.example.shoppingapp.domain.model.DataItem
+import com.example.shoppingapp.data.remote.dto.DataItem
+import com.example.shoppingapp.domain.model.CategoryModel
 
 @OptIn(ExperimentalGlideComposeApi::class)
 @Composable
-fun CategoryCard(category : DataItem) {
+fun CategoryCard(category : CategoryModel) {
     Box(modifier = Modifier.padding(15.dp)
         .fillMaxWidth()
         .height(120.dp)
@@ -35,19 +36,19 @@ fun CategoryCard(category : DataItem) {
             shape = RoundedCornerShape(10.dp)
         ) , contentAlignment = Alignment.BottomCenter) {
         GlideImage(
-            model = painterResource(id = R.drawable.splash),
+            model = category.image,
             contentDescription = null,
             modifier = Modifier
                 .fillMaxWidth()
                 .height(160.dp)
-                , contentScale = ContentScale.Crop
+                , contentScale = ContentScale.FillWidth
         )
         Text(
             text = category.name,
             modifier = Modifier
                 .background(color = Color.Transparent)
             , fontSize = 25.sp
-            , color = Color.White
+            , color = Color.Black
 
         )
 

@@ -1,7 +1,7 @@
 package com.example.shoppingapp.domain.use_cases.categories
 
 import com.example.shoppingapp.common.Resource
-import com.example.shoppingapp.domain.model.DataItem
+import com.example.shoppingapp.domain.model.CategoryModel
 import com.example.shoppingapp.domain.repository.categories.CategoriesRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
@@ -11,7 +11,7 @@ import javax.inject.Inject
 class CategoriesUseCase @Inject constructor(
     private val repo : CategoriesRepository
 ) {
-    operator fun invoke() : Flow<Resource<DataItem>> = flow {
+    operator fun invoke() : Flow<Resource<List<CategoryModel>>> = flow {
         try {
             emit(Resource.Loading())
             val categories = repo.getCategories()

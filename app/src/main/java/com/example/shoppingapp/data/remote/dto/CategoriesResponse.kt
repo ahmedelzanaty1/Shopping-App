@@ -2,13 +2,13 @@ package com.example.shoppingapp.data.remote.dto
 
 import com.google.gson.annotations.SerializedName
 
-data class CategoriesDto(
+data class CategoriesResponse(
 
 	@field:SerializedName("metadata")
 	val metadata: Metadata? = null,
 
 	@field:SerializedName("data")
-	val data: List<DataItemDto>? = null,
+	val data: List<DataItem?>? = null,
 
 	@field:SerializedName("results")
 	val results: Int? = null
@@ -26,7 +26,7 @@ data class Metadata(
 	val currentPage: Int? = null
 )
 
-data class DataItemDto(
+data class DataItem(
 
 	@field:SerializedName("image")
 	val image: String? = null,
@@ -35,7 +35,7 @@ data class DataItemDto(
 	val createdAt: String? = null,
 
 	@field:SerializedName("name")
-	val name: String ,
+	val name: String? = null,
 
 	@field:SerializedName("_id")
 	val id: String? = null,
