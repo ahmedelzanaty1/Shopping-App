@@ -1,15 +1,16 @@
 package com.example.shoppingapp.data.remote.mapper
 
-import com.example.shoppingapp.data.remote.dto.DataItemDto
-import com.example.shoppingapp.domain.model.DataItem
+import com.example.shoppingapp.data.remote.dto.DataItem
+import com.example.shoppingapp.domain.model.CategoriesModel
+import com.example.shoppingapp.domain.model.CategoryModel
 
-fun DataItemDto.toModel() : DataItem {
-    return DataItem(
-        name = name,
+fun DataItem.toCategoryModel(): CategoryModel {
+    return CategoryModel(
         image = image,
+        createdAt = createdAt,
+        name = name ?: "",
         id = id,
         slug = slug,
-        createdAt = createdAt,
         updatedAt = updatedAt
     )
 }
